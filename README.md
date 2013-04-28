@@ -5,9 +5,9 @@ A simple monolithic ToDo list manager in Javascript.  This application implement
 
 The application is structured into:
 
-* The HTML index file
+* The HTML index file and supporting CSS
 * A `main.js` file used to bootstrap the app, using Require.js
-* A todo_ui.js module that manipulates the UI and provides behaviour
+* A `todo_ui.js` module that manipulates the UI and provides behaviour
 * A `todo_svc_module.js` module that implements a simple service to create and manipulate ToDo lists
 * A `datastore.js` module that abstracts the storage mechanism from the service module (and uses LocalStorage)
 
