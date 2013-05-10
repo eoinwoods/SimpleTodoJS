@@ -2,6 +2,8 @@ define(["jquery-1.9.1.min", "datastore"], function(jq, ds) {
 	console.log("ToDoService module loaded") ;
 		
 	var LIST_ID = 1
+	var ITEM_COUNT = 5
+
 	
 	var ItemType = function(id, description, priority, done) {
 			this.id = id ;
@@ -31,7 +33,6 @@ define(["jquery-1.9.1.min", "datastore"], function(jq, ds) {
 		if (getTodoList(LIST_ID) !== null && !forceReset) {
 			return ;
 		}
-		var ITEM_COUNT = 5
 		var newItems = [] ;
 		for ( var i = 1; i <= ITEM_COUNT; i++ ) {
 			var newItem = new ItemType(i, "To do item number " + i, 0, false) ;
@@ -46,9 +47,14 @@ define(["jquery-1.9.1.min", "datastore"], function(jq, ds) {
 	return {
 		Item: ItemType, 
 		
+		// for testing use
+		get_init_length: function() {
+			return ITEM_COUNT ;
+		},
+		
 		get_todo_items: function(listId) {
 			var items = getTodoList(listId) ;
-			return items
+			return items ;
 		},
 		
 
