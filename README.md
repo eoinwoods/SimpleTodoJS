@@ -13,4 +13,4 @@ The application is structured into:
 
 Require.js is used to provide a module system and jQuery is used to provide easy access to the DOM and for JS utilities.
 
-While structured into modules, this application is still rather poorly structured, with the concepts of module, view and controller being mixed together.  As such, it illustrates a how a very simple approach can be taken to creating a Javascript app and shows how confused the structure gets without a better approach (such as MVC or MVP).  Follow on projects will restructure it using more sophisticated patterns.
+While structured into modules, this application is still rather poorly structured, with the concepts of model, view and controller being mixed together in `todo_ui.js`.  As such, it illustrates a how a very simple approach can be taken to creating a Javascript app and shows how confused the structure gets without a better approach (such as MVC or MVP).  Follow on projects will restructure it using more sophisticated patterns.
