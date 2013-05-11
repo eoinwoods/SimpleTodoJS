@@ -23,3 +23,8 @@ div.todo_list > div.todo_item > div {
 div.selected > div.todo_desc{
 	text-decoration: line-through ;
 }
+
+p.advice {
+	font-size: 75% ;
+	color: silver ;
+}

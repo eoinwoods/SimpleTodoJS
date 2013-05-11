@@ -108,7 +108,23 @@ define(["jquery-1.9.1.min", "todo_svc_module"], function(jq, todo) {
 			setTodoListId(1)
 			addListColours() ;		
 	}
+	
+	function handleKeypress(event) {
+		if (event.which === 7) { // ^g
+			$("#reset").toggle(); 		
+		}
+	}
+	
+	function displayHelp(event) {
+		console.log("show help") ;
+		$(event.target).html("<p>Add new item by entering the description above and hitting 'Return' or select items and click the 'Delete' button<br/>Remember - ^G will reveal or hide the 'Reset' button</p>") ;
+	}
 
+	function hideHelp(event) {
+		$(event.target).text("(Help)") ;
+		console.log("hide help") ;
+	}
+	
 	return {
 		setupList: function(listItems) {
 			populateList(listItems) ;
@@ -116,6 +132,8 @@ define(["jquery-1.9.1.min", "todo_svc_module"], function(jq, todo) {
 			$("#delItems").click(removeItemsCallback) ;
 			$("#reset").click(resetListCallback) ;
 			$(".todo_check").click(itemSelectCallback) ;
+			$("body").keypress(handleKeypress) ;
+			$("#helptext").hover(displayHelp, hideHelp) ;
 		}
 	}
 })
