@@ -49,13 +49,18 @@ test("test removing an item reduces the list by that item", function() {
 test("test resetting resets the list to its inital state", function() {
 	todosvc.reset() ;
 	var origLength = todosvc.get_todo_items(1).length ;
-	ok(origLength, todosvc.get_init_length, "Wrong initial length") ;
+	deepEqual(origLength, todosvc.get_init_length(), "Wrong initial length") ;
 	todosvc.new_todo_item(1, new todosvc.Item(999, "TESTITEM1", 0, false))
 	var newLength = todosvc.get_todo_items(1).length ;
-	ok(newLength, origLength+1, "Wrong length of list after new item")
+	deepEqual(newLength, origLength+1, "Wrong length of list after new item")
 	todosvc.reset() ;
-	ok(todosvc.get_todo_items(1).length, origLength, "Wrong length of list after reset")
+	deepEqual(todosvc.get_todo_items(1).length, origLength, "Wrong length of list after reset")
 	
+}) ;
+
+test("test that ItemType toString displays content", function() {
+	var i = new todosvc.Item(100, "Item 100", 1, false) ;
+	deepEqual("ItemType[100, Item 100, 1, false]", i.toString(), "toString returned unexpected string")	
 }) ;
 
 });
